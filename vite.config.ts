@@ -1,25 +1,10 @@
 // vite.config.js
 
 import react from '@vitejs/plugin-react';
-import path from 'path';
 
 export default ({ command, mode }) => {
-
-  const baseConfig = {
-    resolve: {
-      alias: [
-        {
-          find: '@',
-          replacement: path.resolve(__dirname, './src'),
-        }
-      ],
-    },
-    plugins: [react()]
-  }
-
-  if (command === 'build-test') {
+  if (command !== 'build') {
     return {
-      ...baseConfig,
       root: './src',
       define: {
         'process.env.NODE_ENV': JSON.stringify(mode),
@@ -40,13 +25,10 @@ export default ({ command, mode }) => {
           formats: ['es'],
         },
       },
-    };
+    }
   } else {
     return {
-      ...baseConfig,
-      server: {
-        port: 3000,
-      },
+      plugins: [react()],
     }
   }
 };
