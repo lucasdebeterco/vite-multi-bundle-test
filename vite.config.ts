@@ -17,7 +17,7 @@ export default ({ command, mode }) => {
     plugins: [react()]
   }
 
-  if (command === 'build') {
+  if (command === 'build-test') {
     return {
       ...baseConfig,
       root: './src',
