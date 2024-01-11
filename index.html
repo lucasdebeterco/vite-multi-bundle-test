@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React App</title>
+</head>
+<body>
+
+<script type="text/javascript" src="./public/react/react.production.min.js"></script>
+<script type="text/javascript" src="./public/react/react-dom.production.min.js"></script>
+
+<script type="module">
+  function changeProduct(productModel) {
+    console.log('teste')
+    import(`./build/appProduto${productModel}.bundle.js`).then((module) => {
+      const ProdutoApp = module.default; // Acesse a exportação padrão do módulo
+
+      ReactDOM.render(React.createElement(new ProdutoApp({id: 'root'})), document.getElementById('root'));
+    }).catch((error) => {
+      console.error('Erro ao importar o módulo:', error);
+    });
+  }
+
+  // Define the changeProduct function in the global scope
+  window.changeProduct = changeProduct;
+</script>
+
+<div id="root"></div>
+
+<label for="product">Selecione o produto:</label>
+<select id="product" onchange="changeProduct(this.value)">
+  <label>Produto</label>
+  <option value="01">Produto 01</option>
+  <option value="02">Produto 02</option>
+  <option value="03">Produto 03</option>
+</select>
+
+</body>
+</html>
