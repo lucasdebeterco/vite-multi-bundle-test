@@ -6,7 +6,7 @@ interface AppProps {
     id: string
 }
 
-export default class ProdutoApp03 {
+export default class ProdutoApp {
     constructor({id}: AppProps) {
         ReactDOM.createRoot(document.getElementById(id) as HTMLElement).render(
             <React.StrictMode>
