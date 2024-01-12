@@ -11,10 +11,7 @@
 
   <script type="module">
     function changeProduct(productModel) {
-      console.log('teste')
-      import(`./build/appProduto${productModel}.bundle.js`).then((module) => {
-        const ProdutoApp = module.default; // Acesse a exportação padrão do módulo
-
+      import(`./build/appProduto${productModel}.bundle.iife.js`).then(() => {
         ReactDOM.render(React.createElement(new ProdutoApp({id: 'root'})), document.getElementById('root'));
       }).catch((error) => {
         console.error('Erro ao importar o módulo:', error);
