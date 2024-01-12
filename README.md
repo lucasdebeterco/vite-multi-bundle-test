@@ -1,6 +1,6 @@
 # Vite Multi Bundle APP
 
-es: https://vite-multi-bundle-test.vercel.app/
+es: https://vite-multi-bundle-test.vercel.app/ <br>
 iife: https://iife.d3r5xcl02ikhf3.amplifyapp.com/
 
 Test application, creating multiple bundles on build action. Dinamically importing each bundle based on user action inside the App index.
