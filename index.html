@@ -13,17 +13,6 @@
   <script type="text/javascript" src="./react/react.production.min.js"></script>
   <script type="text/javascript" src="./react/react-dom.production.min.js"></script>
 
-  <script type="module">
-    function changeProduct(productModel) {
-      import(`./build/appProduto${productModel}.bundle.iife.js`).then(() => {
-        ReactDOM.render(React.createElement(new ProdutoApp({id: 'root'})), document.getElementById('root'));
-      }).catch((error) => {
-        console.error('Erro ao importar o módulo:', error);
-      });
-    }
-
-    window.changeProduct = changeProduct;
-  </script>
 
   <div id="root"></div>
 
@@ -34,5 +23,16 @@
     <option value="02">Produto 02</option>
     <option value="03">Produto 03</option>
   </select>
+
+
+  <script>
+    function changeProduct(productModel) {
+      switch (productModel) {
+        case '01': ReactDOM.render(React.createElement(new ProdutoApp01({id: 'root'})), document.getElementById('root'));
+        case '02': ReactDOM.render(React.createElement(new ProdutoApp02({id: 'root'})), document.getElementById('root'));
+        case '03': ReactDOM.render(React.createElement(new ProdutoApp03({id: 'root'})), document.getElementById('root'));
+      }
+    }
+  </script>
 </body>
 </html>

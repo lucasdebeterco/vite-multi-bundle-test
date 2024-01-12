@@ -21,7 +21,7 @@ export default ({ command, mode }) => {
           entry: {
             [`appProduto${productModel}.bundle`]: `./Produtos/Produto${productModel}/entrypoint.tsx`
           },
-          name: 'ProdutoApp',
+          name: `ProdutoApp${productModel}`,
           formats: ['iife'],
         },
       },
