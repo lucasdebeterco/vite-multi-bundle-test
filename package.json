@@ -5,7 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && npm run build-product-01 && npm run build-product-02 && npm run build-product-03 && vite build",
+
+    "build-product-01": "vite build -- 01",
+    "build-product-02": "vite build -- 02",
+    "build-product-03": "vite build -- 03",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

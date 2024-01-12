@@ -3,7 +3,9 @@
 import react from '@vitejs/plugin-react';
 
 export default ({ command, mode }) => {
-  if (command !== 'build') {
+  const productModel = process.argv[4];
+
+  if (command === 'build' && productModel) {
     return {
       root: './src',
       define: {
@@ -17,12 +19,10 @@ export default ({ command, mode }) => {
         cssCodeSplit: false,
         lib: {
           entry: {
-            'appProduto01.bundle': './Produtos/Produto01/entrypoint.tsx',
-            'appProduto02.bundle': './Produtos/Produto02/entrypoint.tsx',
-            'appProduto03.bundle': './Produtos/Produto03/entrypoint.tsx'
+            [`appProduto${productModel}.bundle`]: `./Produtos/Produto${productModel}/entrypoint.tsx`
           },
           name: 'ProdutoApp',
-          formats: ['es'],
+          formats: ['iife'],
         },
       },
     }
